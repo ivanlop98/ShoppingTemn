@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+  <html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Temn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="icon" href="/static/logo2.png" type="image/x-icon">
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .swiper .swiper-button-prev,
+      .swiper .swiper-button-next{
+        --swiper-navigation-size:40px;
+        --swiper-theme-color:#4a7777a8;
+      }
+            /* Estilo para dispositivos móviles */
+      @media screen and (max-width: 767px) {
+        .accordion-content {
+          display: none;
+        }
+        .accordion-btn::after {
+          content: '\f078';
+          font-family: FontAwesome;
+          float: right;
+        }
+        .accordion-btn.active::after {
+          content: '\f077';
+        }
+      }
+    </style>
+</head>
+
+
+<nav id="nav" class=" fixed w-full z-20 top-0 left-0 bg-gray-100 ">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-1">
+  <a href="/" class="flex items-center">
+      <img src="/static/logo2.png" class="w-10 m-3" alt="waka Logo">
+  </a>
+  <div class="flex md:order-2">
+    <button type="button" class="hidden md:block font-[Poppins] hover:scale-125 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> <svg xmlns:xlink="http://www.w3.org/1999/xlink" height="24px" width="24px" version="1.1" id="Capa_1" viewBox="0 0 58 58" xml:space="preserve" class="w-7 h-7 hover:scale-125" alt="Comprar ya!">
+      <g>
+        <path style="fill:#2CB742;" d="M0,58l4.988-14.963C2.457,38.78,1,33.812,1,28.5C1,12.76,13.76,0,29.5,0S58,12.76,58,28.5   S45.24,57,29.5,57c-4.789,0-9.299-1.187-13.26-3.273L0,58z"/>
+        <path style="fill:#FFFFFF;" d="M47.683,37.985c-1.316-2.487-6.169-5.331-6.169-5.331c-1.098-0.626-2.423-0.696-3.049,0.42   c0,0-1.577,1.891-1.978,2.163c-1.832,1.241-3.529,1.193-5.242-0.52l-3.981-3.981l-3.981-3.981c-1.713-1.713-1.761-3.41-0.52-5.242   c0.272-0.401,2.163-1.978,2.163-1.978c1.116-0.627,1.046-1.951,0.42-3.049c0,0-2.844-4.853-5.331-6.169   c-1.058-0.56-2.357-0.364-3.203,0.482l-1.758,1.758c-5.577,5.577-2.831,11.873,2.746,17.45l5.097,5.097l5.097,5.097   c5.577,5.577,11.873,8.323,17.45,2.746l1.758-1.758C48.048,40.341,48.243,39.042,47.683,37.985z"/>
+      </g>
+    </svg></button>
+
+    <!-- <button id="mostrar-carrito" class=" pr-2 rounded-full" alt="Comprar ya!!">
+      <img src="/static/carrito.svg" class="w-7 h-7 hover:scale-125">
+    </button> -->
+
+
+      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+  </div>
+  <div class="items-center justify-between block w-full md:flex md:w-auto md:order-1 hidden md:block" id="navbar-sticky">
+    <!-- Resto del código del menú -->
+    <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <li>
+        <a href="/" class="  text-xl font-sans font-bold block px-4 py-3 text-gray-700 hover:bg-gray-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 " >Inicio</a>
+      </li>
+      <li>
+        <a href="#producto-section" class=" text-xl font-sans font-bold block px-4 py-3 hover:bg-gray-300 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
+      </li>
+      <li>
+        <a href="#Catalogos" class="text-xl block font-sans font-bold  text-gray-700 px-4 py-3 hover:bg-gray-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Catalogos</a>
+      </li>
+      <li>
+        <a href="#Services" class="text-xl block font-sans font-bold  text-gray-700 px-4 py-3 hover:bg-gray-300 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Servicios</a>
+      </li>
+
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<!-- mas adelante carrito
+  <section id="carrito" class="hidden fixed top-22 right-2 w-1/3 h-full bg-gray-200 shadow-lg overflow-y-auto p-4 z-50 rounded-lg">
+  <button id="mostrar-carrito-carrito" class=" w-5 absolute top-22 right-4" alt="Comprar ya!!">
+    <img src="/static/exit.svg" >
+  </button>
+  <h2 class="text-2xl font-semibold">Carrito de Compras</h2>
+  <ul id="lista-carrito">
+   Aquí se mostrarán los productos agregados al carrito 
+  </ul>
+  <p class="relative text-xl font-semibold bottom-0">Total: <span id="total" class="price">0</span> Gs</p>
+</section> -->
+
+<body class="relative top-24 mb-24" >
+  <!-- Slider main container -->
+    <div class="swiper md:w-11/12 sm:w-11/12 w-11/12 flex justify-center overflow-hidden ">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper relative mb-6 ">
+        <!-- Slides -->
+        <!-- <div class="swiper-slide"> <img src="/static/4.png" alt="Slide 1" class="object-fit rounded-lg "> </div> 
+
+        <div class="swiper-slide"><img src="/static/5.png" alt="Slide 2" class="rounded-lg"></div>
+
+        <div class="swiper-slide"> <img src="/static/6.png" alt="Slide 4" class="rounded-lg"></div>
+      </div> -->
+
+      <video class="swiper-slide rounded-lg autoplay" autoplay loop muted>
+          <source class="object-fit rounded-lg " src="/static/portada1.mp4"  type="video/mp4">
+      </video>
+
+      <video class="swiper-slide rounded-lg"  autoplay loop muted>
+        <source class="object-fit rounded-lg " src="/static/portada2.mp4"  type="video/mp4">
+    </video>
+
+    <video class="swiper-slide rounded-lg autoplay" autoplay loop muted>
+      <source class="object-fit rounded-lg" src="/static/prueba3.mp4"  type="video/mp4">
+  </video>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev "></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+
+<section class= "pt-5" id="producto-section">
+  <div class="mt-12 mb-4 flex flex-col justify-center items-center">
+    <h1 class="text-2xl xl:text-3xl font-bold font-sans xl:leading-9 text-red-700 dark:text-white">Productos mas vendidos</h1>
+  </div>
+<div class="max-w-7xl lg:w-4/5 mx-auto overflow-auto border-solid rounded-lg pt-5 ">
+  <nav class=" flex justify-center dark:border-gray-600 mb-2">
+    <div class="items-center justify-between block w-full md:flex md:w-auto md:order-1 hidden md:block" id="navbar-sticky">
+      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 cursor-pointer">
+        <li>
+          <a href="#" data-filter="all" class="filter-button text-2xl font-sans  block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 md:dark:hover:text-red-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-bold ">Todos</a>
+        </li>
+        <li>
+          <a  data-filter="SUSTECH" class="filter-button text-2xl font-sans block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 md:dark:hover:text-red-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-bold ">Sustech</a>
+        </li>
+        <li>
+          <a data-filter="LEMA" class="filter-button text-2xl font-sansblock py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 md:dark:hover:text-red-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700  font-bold ">Lema</a>
+        </li>
+        <li>
+          <a  data-filter="CEI" class="filter-button text-2xl font-sans block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-700 md:p-0 md:dark:hover:text-red-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700  font-bold ">C.E.I.</a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>
+ </div>
+ </section>
+ 
+<section class="py-2 flex flex-wrap justify-center items-center border-solid">
+  {% for producto in lista_productos %}
+  <div class="m-4 product w-72 h-80 m-1.5 bg-gray-100 p-1 transform transition duration-500 ease-in-out hover:scale-105 rounded-lg overflow-hidden" data-days-usage="{{ producto.marca }}" style="display: grid; grid-template-rows: auto 1fr auto;">
+    <img class="w-auto h-auto object-cover transform transition rounded-lg ease-in-out transition-opacity duration-500  border-solid normal-image cursor-pointer hover-image" src="{{ producto.imagen }}" alt="{{ producto.nombre }}" data-hover-image="{{ producto.imagen_hover }}">
+    
+    <p class="px-1 pb-1 text-l text-sans font-semibold"> {{ producto.nombre }}</p>
+    <p class="px-1 pb-3 text-sm text-sans font-medium"><span class="pb-1 text-sm text-sans font-semibold">Codigo Original: </span>{{ producto.codigo_original }}</p>
+    
+    <!-- Contenedor para el precio y el botón -->
+    <div class="flex flex-row items-center justify-between p-2">
+        <p class="text-l text-semibold"><span class="price">{{ producto.precio }}</span> Gs</p>
+        <a href="https://wa.me/595982624043?text=Estoy%20interesado%20en%20 {{ producto.nombre }} " target="_blank" class="inline-flex items-center justify-center w-6 h-6 bg-green-300 rounded-full hover:bg-green-600 flex-none mt-2">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" height="24px" width="24px" version="1.1" id="Capa_1" viewBox="0 0 58 58" xml:space="preserve" class="w-7 h-7 hover:scale-125" alt="Comprar ya!">
+                <g>
+                    <path style="fill:#2CB742;" d="M0,58l4.988-14.963C2.457,38.78,1,33.812,1,28.5C1,12.76,13.76,0,29.5,0S58,12.76,58,28.5   S45.24,57,29.5,57c-4.789,0-9.299-1.187-13.26-3.273L0,58z"/>
+                    <path style="fill:#FFFFFF;" d="M47.683,37.985c-1.316-2.487-6.169-5.331-6.169-5.331c-1.098-0.626-2.423-0.696-3.049,0.42   c0,0-1.577,1.891-1.978,2.163c-1.832,1.241-3.529,1.193-5.242-0.52l-3.981-3.981l-3.981-3.981c-1.713-1.713-1.761-3.41-0.52-5.242   c0.272-0.401,2.163-1.978,2.163-1.978c1.116-0.627,1.046-1.951,0.42-3.049c0,0-2.844-4.853-5.331-6.169   c-1.058-0.56-2.357-0.364-3.203,0.482l-1.758,1.758c-5.577,5.577-2.831,11.873,2.746,17.45l5.097,5.097l5.097,5.097   c5.577,5.577,11.873,8.323,17.45,2.746l1.758-1.758C48.048,40.341,48.243,39.042,47.683,37.985z"/>
+                </g>
+            </svg>
+        </a>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<div class="mt-12 mb-4 flex flex-col justify-center items-center pt-8" id="Catalogos">
+  <h1 class="text-2xl xl:text-3xl font-bold font-sans xl:leading-9 text-red-700 dark:text-white">Catalogo de nuestras marcas</h1>
+</div>
+<section class="py-2 flex flex-wrap justify-center items-center border-solid" >
+  
+  <div class="m-4 w-72 h-72 m-1.5 bg-gray-200 p-1 transform transition duration-500 ease-in-out hover:scale-105 rounded-lg overflow-hidden" style="display: grid; grid-template-rows: auto 1fr auto;">
+    <img class="w-auto h-auto object-cover transform transition rounded-lg ease-in-out transition-opacity duration-500  border-solid normal-image cursor-pointer" src="/static/ceilogo.png">
+    
+  
+  </div>
+
+  <div class="m-4 w-72 h-72 m-1.5 bg-gray-200 p-1 transform transition duration-500 ease-in-out hover:scale-105 rounded-lg overflow-hidden"  style="display: grid; grid-template-rows: auto 1fr auto;">
+    <img class="w-auto h-auto object-cover transform transition rounded-lg ease-in-out transition-opacity duration-500  border-solid normal-image cursor-pointer" src="/static/sustechlogo.png" >
+    
+  
+  </div>
+
+  <div class="m-4 w-72 h-72 m-1.5 bg-gray-200 p-1 transform transition duration-500 ease-in-out hover:scale-105 rounded-lg overflow-hidden"style="display: grid; grid-template-rows: auto 1fr auto;">
+    <img class="w-auto h-auto object-cover transform transition rounded-lg ease-in-out transition-opacity duration-500  border-solid normal-image cursor-pointer" src="/static/zeplynlogo.jpg" >
+    
+  
+  </div>
+
+  <div class="m-4 w-72 h-72 m-1.5 bg-gray-200 p-1 transform transition duration-500 ease-in-out hover:scale-105 rounded-lg overflow-hidden"  style="display: grid; grid-template-rows: auto 1fr auto;">
+    <img class="w-auto h-auto object-cover transform transition rounded-lg ease-in-out transition-opacity duration-500  border-solid normal-image cursor-pointer" src="/static/allmaxlogo.jpeg" >
+    
+  
+  </div>
+</section>
+
+<div class="flex justify-center items-center" id="Services">
+  <div class="2xl:mx-auto 2xl:container py-12 px-4 sm:px-6 xl:px-20 2xl:px-0 w-full">
+      <div class="flex flex-col jusitfy-center items-center space-y-4">
+          <div class="flex flex-col justify-center items-center ">
+              <h1 class="text-2xl xl:text-3xl font-bold font-sans xl:leading-9 text-red-700 dark:text-white">Services</h1>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-4 md:gap-x-8 max-w-7xl">
+                      <div class="relative group flex justify-center items-center h-full w-full md:my-4 my-4">
+                        <picture>
+                        <img sizes="(min-width: 768px) 30vw, 2048px"
+                            src="/static/images/servicio1.png" loading="lazy" height="2850" width="1842" class="h-100 object-fit-cover w-96 rounded-lg" alt="">
+                      </picture>
+                          <button class="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 top-10 z-10 absolute text-sans font-semibold leading-none rounded-lg text-white py-3 w-36 bg-red-700 ">Auxilio</button>
+
+                      <div class="absolute opacity-0 group-hover:opacity-100 transition duration-500 top-9  py-6 z-0 px-20 w-32 bg-red-600 bg-opacity-50 rounded-lg"></div>
+              </div>
+
+              <div class="relative group flex justify-center items-center h-full w-full md:my-4 my-4" >
+                      <picture>
+                      <img sizes="(min-width: 768px) 30vw, 2048px"
+                          " src="/static/images/servicio2.png" loading="lazy" height="2850" width="1842" class="h-100 object-fit-cover w-96 rounded-lg" alt="">
+                    </picture>
+                    <button class="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 top-10 z-10 absolute text-sans font-semibold leading-none rounded-lg text-white py-3 w-36 bg-red-700 ">Taller</button>
+
+                    <div class="absolute opacity-0 group-hover:opacity-100 transition duration-500 top-9  py-6 z-0 px-20 w-32 bg-red-600 bg-opacity-50 rounded-lg"></div>
+              </div>
+
+              <div class="relative group flex justify-center items-center h-full w-full md:my-4 my-4">
+                    <picture>
+                    
+                    <img sizes="(min-width: 768px) 30vw, 2048px"
+                        src="/static/images/servicio3.png" loading="lazy" height="2850" width="1842" class="h-100 object-fit-cover w-96 rounded-lg" alt="">
+                    </picture>
+                        <button class="dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 top-10 z-10 absolute text-sans font-semibold leading-none rounded-lg text-white py-3 w-36 bg-red-700 ">Cambio de Aceite</button>
+
+                        <div class="absolute opacity-0 group-hover:opacity-100 transition duration-500 top-9  py-6 z-0 px-20 w-32 bg-red-600 bg-opacity-50 rounded-lg"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</body>
+
+<footer class="bg-gray-100 text-white py-8" id="Footer">
+  <div class="container mx-auto flex flex-wrap justify-center">
+    <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8 ">
+      <a href="/" class="flex items-center">
+        <img src="/static/logo2.png" class="md:w-40 hidden md:inline-block" alt="waka Logo">
+      </a>
+      
+    </div>
+    <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+      <button class="accordion-btn text-xl font-bold mb-4 text-gray-900 hover:text-blue-700 hover:underline">COMPANY</button>
+      <ul class="accordion-content text-gray-900">
+        <li class="mb-2"><a href="#" class="hover:text-blue-700 hover:underline">About Shopping TEMN</a></li>
+        <li class="mb-2"><a href="#" class="hover:text-blue-700 hover:underline">Blogs</a></li>
+      </ul>
+    </div>
+    <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+      <button class="accordion-btn text-xl font-bold mb-4 text-gray-900 hover:text-blue-700 hover:underline">PARTNER WITH US</button>
+      <ul class="accordion-content text-gray-900">
+        <li class="mb-2"><a href="#" class="hover:text-blue-700 hover:underline">Partnership Opportunity</a></li>
+      </ul>
+    </div>
+    <div class="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+      <button class="accordion-btn text-xl font-bold mb-4 text-gray-900 hover:text-blue-700 hover:underline">SUPPORT</button>
+      <ul class="accordion-content text-gray-900">
+        <li class="mb-2"><a href="#" class="hover:text-blue-700 hover:underline">Contactanos</a></li>
+        <li class="mb-2"><a href="#" class="hover:text-blue-700 hover:underline">PartnerShip</a></li>
+      </ul>
+    </div>
+    <div class="relative">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+      </div>
+      <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search.." required>
+      <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+  </div>
+    <div class="w-full text-center mt-8">
+      <p class="text-sm text-gray-400 mb-2">&copy;2021 Innofly HK Limited All Rights Reserved</p>
+      <p class="text-sm font-bold text-white">musicofivan@gmail.com</p>
+    </div>
+    
+  </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+</script>
+<script>
+   $(document).ready(function(){
+  $(".accordion-btn").click(function(){
+    $(this).toggleClass("active");
+    $(this).next(".accordion-content").slideToggle("fast");
+  });
+});
+</script>
+<script src="/static/index.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>

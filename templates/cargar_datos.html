@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Datos del Producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<nav id="nav" class=" fixed w-full z-20 top-0 left-0 bg-gray-100 ">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 ">
+  <a href="/" class="flex items-center">
+      <img src="/static/logo2.png" class="w-12" alt="waka Logo">
+  </a>
+  <div class="flex md:order-2">
+    <button type="button" class="hidden md:block font-[Poppins] hover:scale-125 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> <svg xmlns:xlink="http://www.w3.org/1999/xlink" height="24px" width="24px" version="1.1" id="Capa_1" viewBox="0 0 58 58" xml:space="preserve" class="w-7 h-7 hover:scale-125" alt="Comprar ya!">
+      <g>
+        <path style="fill:#2CB742;" d="M0,58l4.988-14.963C2.457,38.78,1,33.812,1,28.5C1,12.76,13.76,0,29.5,0S58,12.76,58,28.5   S45.24,57,29.5,57c-4.789,0-9.299-1.187-13.26-3.273L0,58z"/>
+        <path style="fill:#FFFFFF;" d="M47.683,37.985c-1.316-2.487-6.169-5.331-6.169-5.331c-1.098-0.626-2.423-0.696-3.049,0.42   c0,0-1.577,1.891-1.978,2.163c-1.832,1.241-3.529,1.193-5.242-0.52l-3.981-3.981l-3.981-3.981c-1.713-1.713-1.761-3.41-0.52-5.242   c0.272-0.401,2.163-1.978,2.163-1.978c1.116-0.627,1.046-1.951,0.42-3.049c0,0-2.844-4.853-5.331-6.169   c-1.058-0.56-2.357-0.364-3.203,0.482l-1.758,1.758c-5.577,5.577-2.831,11.873,2.746,17.45l5.097,5.097l5.097,5.097   c5.577,5.577,11.873,8.323,17.45,2.746l1.758-1.758C48.048,40.341,48.243,39.042,47.683,37.985z"/>
+      </g>
+    </svg></button>
+
+    <!-- <button id="mostrar-carrito" class=" pr-2 rounded-full" alt="Comprar ya!!">
+      <img src="/static/carrito.svg" class="w-7 h-7 hover:scale-125">
+    </button> -->
+
+
+      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+  </div>
+  <div class="items-center justify-between block w-full md:flex md:w-auto md:order-1 hidden md:block" id="navbar-sticky">
+    <!-- Resto del código del menú -->
+    <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <li>
+        <a href="/" class="  text-2xl font-[Poppins] block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 " >Inicio</a>
+      </li>
+      <li>
+        <a href="#producto-section" class=" text-2xl font-sans block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Productos</a>
+      </li>
+      <li>
+        <a href="#Services" class="text-2xl block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-500 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Servicios</a>
+      </li>
+      <!-- <li>
+        <a href="#Footer" class="text-2xl font-[Poppins] block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+      </li> -->
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<!-- <body class="bg-gray-200 py-20">
+    <div class="max-w-2xl bg-white py-10 px-5 m-auto w-full mt-10">
+
+        <div class="text-3xl font-[Poppins] mb-6 text-center ">
+            Introduce los Datos del Producto
+        </div>
+
+        <form action="/cargar_datos" method="post">
+            <div class="grid grid-cols-2 gap-4 max-w-xl m-auto">
+
+                <div class="col-span-2 ">
+                    <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="nombre" placeholder="Nombre del Producto" required/>
+                </div>
+
+                
+                <div class="col-span-2">
+                  <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="imagen" placeholder="URL de la Imagen del Producto"/>
+                </div>
+                
+
+                <div class="col-span-2 lg:col-span-1">
+                  <input type="number" step="1" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="dias_uso" placeholder="Dias de uso" required/>
+              </div>
+
+              <div class="col-span-2 lg:col-span-1">
+                <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="sabor" placeholder="sabor"/>
+              </div>
+
+                <div class="col-span-2 lg:col-span-1">
+                    <input type="number" step="1" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="precio" placeholder="Precio del Producto" required/>
+                </div>
+                <div class="col-span-2 lg:col-span-1">
+                    <input type="number" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="cantidad" placeholder="Cantidad de Producto" required/>
+                </div>
+
+                <div class="col-span-2">
+                    <textarea cols="30" rows="8" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="caracteristicas" placeholder="Características del Producto"></textarea>
+                </div>
+
+                <div class="col-span-2 text-right">
+                    <button type="submit" class=" font-[Poppins] text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body> -->
+
+<body class="bg-gray-200 py-20">
+  <div class="max-w-2xl bg-white py-10 px-5 m-auto w-full mt-10">
+
+      <div class="text-3xl font-[Poppins] mb-6 text-center ">
+          Introduce los Datos del Producto
+      </div>
+
+      <form action="/cargar_datos" method="post">
+          <div class="grid grid-cols-2 gap-4 max-w-xl m-auto">
+
+              <div class="col-span-2">
+                  <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="nombre" placeholder="Nombre del Producto" required/>
+              </div>
+
+              <div class="col-span-2">
+                  <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="codigo_original" placeholder="Código Original" required/>
+              </div>
+
+              <div class="col-span-2">
+                  <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="marca" placeholder="Marca" required/>
+              </div>
+
+              
+              <div class="col-span-2">
+                <input type="number" step="1" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="precio" placeholder="Precio del Producto" required/>
+              </div>
+              
+              <div class="col-span-2">
+                <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="estado" placeholder="Estado" required/>
+              </div>
+              
+              <div class="col-span-2">
+                <!-- Agrega campos para las imágenes -->
+                <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="imagen" placeholder="URL de la Imagen Principal"/>
+              </div>
+              <div class="col-span-2">
+                <!-- Agrega campos para las imágenes -->
+                <input type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="imagen_hover" placeholder="URL de la imagen 2 "/>
+              </div>
+              
+              <div class="col-span-2">
+                <textarea cols="30" rows="8" type="text" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" name="descripcion" placeholder="Características del Producto"></textarea>
+              </div>
+              
+              <div class="col-span-2 text-right">
+                <button type="submit" class="font-[Poppins] text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2 text-center md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Guardar</button>
+              </div>
+              
+            </div>
+      </form>
+
+  </div>
+</body>
+</html>
